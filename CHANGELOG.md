@@ -6,6 +6,8 @@ Una versión se cierra cuando está en npm: hasta entonces su sección se llama 
 
 ## 1.1.2 · Sin publicar
 
+- **Edge y Chrome de Windows desde WSL, opcionales.** TEST BROWSER añade `CONNECTION = windows`, con servidor MCP fijado en Windows, perfiles dedicados y CDP en loopback. Conserva la conexión local por defecto y `WEBSITES`; diferencia sesión y ventana externas, convierte rutas y comprueba metadatos sin navegar pestañas. Rechaza Node Windows menor que 20 antes de iniciar el servidor y su diagnóstico no recomienda instalar paquetes Linux. Incluye guías, regresiones, validación real previa con ambos navegadores y validación completa de suite y paquete en el repositorio fuente; la repetición viva requiere que los endpoints dedicados estén abiertos.
+
 ## 1.1.1 · 2026-10-31
 
 Una versión de arreglos urgentes, con lo que dijo el diagnóstico de la 1.1.0, y un instalador para Windows.

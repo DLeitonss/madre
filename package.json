@@ -54,6 +54,7 @@
     "docs/sdk",
     "docs/INTERNALS.md",
     "docs/REFERENCE.md",
+    "docs/WINDOWS-BROWSER.md",
     "SECURITY.md",
     "CONTRIBUTING.md",
     "README.en.md",
@@ -61,6 +62,7 @@
     "TRADEMARKS.en.md",
     "ADDITIONAL-TERMS.md",
     "docs/en/REFERENCE.md",
+    "docs/en/WINDOWS-BROWSER.md",
     "docs/en/SDK.md",
     "docs/en/INTERNALS.md",
     "docs/en/training"

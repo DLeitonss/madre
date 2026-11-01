@@ -891,13 +891,11 @@ export const ES = {
   'an embedding model and a chat model · MADRE can pull the recommended ones':
     'un modelo de búsqueda por significado y uno de chat · MADRE puede descargar los recomendados',
 
-  'Hands an agent a headless browser that reaches only this project and the servers you start from COMMANDS, on the turns that ask to look at a page, click through it, read its console or take screenshots.':
-    'Le da a un agente un navegador sin ventana que solo alcanza este proyecto y los servidores que arrancas desde COMANDOS, en las respuestas que necesitan ver una página, darle clic, leer su consola o tomar capturas.',
+  'Gives every agent a browser for local pages, with optional general web access and persistent project or shared sessions.':
+    'Da a cada agente un navegador para páginas locales, con acceso opcional a la web y sesiones persistentes por proyecto o compartidas.',
   'nothing in the project · screenshots land in .pulse/out/<turn>/':
     'nada en el proyecto · las capturas se guardan en .pulse/out/<turno>/',
-  'a browser per turn, started and stopped by the CLI': 'un navegador en cada respuesta, que la app del agente enciende y apaga',
-  'no origin but this project is reachable through it': 'desde ese navegador no se puede abrir nada que no sea este proyecto',
-  '@playwright/mcp and the browser you choose for it (chromium by default) on this machine': '@playwright/mcp y el navegador que elijas para él (chromium, si no eliges otro) en esta computadora',
+  'optional persistent browser profile when enabled': 'perfil persistente opcional del navegador cuando está habilitado',
   'PREVIEW on, to have pages to open': '«Vista previa» encendida, para que haya páginas que abrir',
 
   // ── LAS FICHAS DE MÓDULO ──────────────────────────────────────────────────
@@ -6025,11 +6023,11 @@ export const ES = {
   'The Gemini image model Image Studio draws with. It bills against your own key.': 'El modelo de imágenes de Gemini con el que dibuja Imágenes. Se cobra a tu propia llave.',
   'the project is a git repository': 'el proyecto es un repositorio de git',
   'BROWSER': 'NAVEGADOR',
-  'Which browser engine the agents drive.': 'Qué navegador usan los agentes.',
   'SHOW THE WINDOW': 'MOSTRAR LA VENTANA',
-  'Off, the browser works without a window. On, the next time an agent opens your page, you see its window on this screen.': 'Apagado, el navegador trabaja sin ventana. Encendido, la próxima vez que un agente abra tu página verás su ventana en esta pantalla.',
-  'Done. The next time an agent opens your page, its window opens on this screen. To try it, ask: «open the page and tell me what you see».': 'Listo. La próxima vez que un agente abra tu página, su ventana se abrirá en esta pantalla. Para probarlo, pídele: «abre la página y dime qué ves».',
-  'Done. The browser works without a window again.': 'Listo. El navegador vuelve a trabajar sin ventana.',
+  'WEBSITES': 'SITIOS WEB',
+  'SESSION': 'SESIÓN',
+  'WINDOWS CDP': 'CDP DE WINDOWS',
+  'local: project pages. all: any website and its sign-in providers. youtube: legacy limited access. Persistent accounts are available to agents using the same profile.': 'local: páginas del proyecto. all: cualquier sitio y sus proveedores de inicio de sesión. youtube: acceso limitado heredado. Las cuentas persisten para los agentes que usan el mismo perfil.',
   '… still running · {seconds}s · {note}': '… sigue trabajando · {seconds} s · {note}',
   'installer is quiet (npm install or git status can take a while)': 'la instalación no dice nada (npm install o git status pueden tardar)',
   'the sign-in is waiting on you: finish it in the page that opened': 'el inicio de sesión te espera: termínalo en la página que se abrió',
@@ -6530,4 +6528,29 @@ export const ES = {
   'Other projects are stopped from this computer.': 'Los demás proyectos se detienen desde esta computadora.',
   'That project is not open any more.': 'Ese proyecto ya no está abierto.',
   'That is not running any more.': 'Eso ya no está en marcha.',
+  '{browser} is not installed on this computer': '{browser} no está instalado en esta computadora',
+  'off · install the selected browser on this computer; MADRE does not download it': 'apagado · instala el navegador elegido en esta computadora; MADRE no lo descarga',
+  'TEST BROWSER stays off: the saved {session} session does not open ({problem}). Close any other window using it and turn it on again, or choose another session in its settings.': 'El NAVEGADOR DE PRUEBAS sigue apagado: la sesión guardada {session} no abre ({problem}). Cierra cualquier otra ventana que la use y vuelve a encenderlo, o elige otra sesión en sus ajustes.',
+  'TEST BROWSER stays off: {browser} does not start ({problem}). Install it on this computer, or choose another browser in its settings.': 'El NAVEGADOR DE PRUEBAS sigue apagado: {browser} no inicia ({problem}). Instálalo en esta computadora o elige otro navegador en sus ajustes.',
+  // Windows browser connection (WSL).
+  'local: start a browser here. windows: connect from WSL to a dedicated Windows Chrome or Edge. Its session and window are managed in Windows; use one agent at a time.': 'local: abre un navegador aquí. windows: conecta desde WSL con Chrome o Edge de Windows y un perfil dedicado. Su sesión y ventana se controlan en Windows; usa un agente a la vez.',
+  'Leave empty for Edge port 9222 or Chrome port 9223. Otherwise use http://127.0.0.1:<port>. Requires a dedicated Windows browser profile and the pinned Windows server.': 'Vacío: Edge usa el puerto 9222 y Chrome el 9223. Para otro puerto usa http://127.0.0.1:<port>. Requiere un perfil dedicado en Windows y la versión fijada del servidor Windows.',
+  'Local connection only. isolated: discarded after the turn. project: agents in this project reuse the login. shared: projects reuse the account. Windows always uses the external browser session.': 'Solo en conexión local. isolated: se descarta al terminar el turno. project: los agentes del proyecto reutilizan el login. shared: los proyectos reutilizan la cuenta. Windows siempre usa la sesión del navegador externo.',
+  'Local: chromium, firefox and webkit are downloaded; chrome and msedge use a local installation. Windows connection: choose chrome or msedge and open its dedicated profile first.': 'Local: se descargan chromium, firefox y webkit; chrome y msedge usan una instalación local. En conexión Windows, elige chrome o msedge y abre primero su perfil dedicado.',
+  'Local connection only: show the window when an agent opens a page. Windows connection uses the window you opened in Windows.': 'Solo en conexión local: muestra la ventana cuando un agente abre una página. La conexión Windows usa la ventana que abriste en Windows.',
+  'Local connection: the next browser opens with a window. Windows connection: use the window already opened in Windows.': 'Conexión local: el próximo navegador abre con ventana. Conexión Windows: usa la ventana que ya abriste en Windows.',
+  'Local connection: the next browser runs without a window. Windows connection: its existing window is unchanged.': 'Conexión local: el próximo navegador funciona sin ventana. Conexión Windows: conserva su ventana actual.',
+  'Local: a browser per turn. Windows: a connection to the browser you opened.': 'Local: un navegador por turno. Windows: una conexión al navegador que abriste.',
+  'Local: @playwright/mcp and a browser here. Windows: WSL interop, Windows Node.js, the pinned server and dedicated Chrome or Edge.': 'Local: @playwright/mcp y un navegador aquí. Windows: interoperabilidad de WSL, Node.js de Windows, la versión fijada del servidor y Chrome o Edge con perfil dedicado.',
+  'Install the pinned browser server in Windows and check Windows Node.js and WSL interop.': 'Instala la versión fijada del servidor en Windows y revisa Node.js de Windows y la interoperabilidad de WSL.',
+  'Windows connection: {problem}': 'Conexión Windows: {problem}',
+  'Windows CDP requires BROWSER = chrome or msedge.': 'CDP de Windows requiere BROWSER = chrome o msedge.',
+  '{state} · Windows {browser}': 'Windows {browser} · {state}',
+  'TEST BROWSER stays off: Windows connection failed ({problem}). Install the pinned Windows server and open the selected browser with its dedicated profile and loopback CDP port; see the Windows browser guide.': 'El NAVEGADOR DE PRUEBAS sigue apagado: falló la conexión Windows ({problem}). Instala la versión fijada del servidor Windows y abre el navegador elegido con su perfil dedicado y CDP por loopback; consulta la guía del navegador Windows.',
+  'TEST BROWSER: the Windows connection is not ready': 'NAVEGADOR DE PRUEBAS: la conexión Windows no está lista',
+  'The Windows connection uses the pinned @playwright/mcp server inside Windows and an already-open dedicated Chrome or Edge profile. Installing Playwright in Linux cannot repair this connection.': 'La conexión Windows usa la versión fijada del servidor @playwright/mcp dentro de Windows y un perfil dedicado de Chrome o Edge que ya debe estar abierto. Instalar Playwright en Linux no repara esta conexión.',
+  'Follow the Windows browser guide: verify Windows Node.js >=20 and WSL interop, install the pinned server in Windows LOCALAPPDATA/MADRE/browser-server, open the selected dedicated browser profile with loopback CDP, and RECHECK in MODULES.': 'Sigue la guía del navegador Windows: comprueba Node.js >=20 de Windows y la interoperabilidad de WSL, instala la versión fijada del servidor en LOCALAPPDATA/MADRE/browser-server de Windows, abre el perfil dedicado del navegador elegido con CDP por loopback y pulsa VOLVER A COMPROBAR en MÓDULOS.',
+  '# this connection is for MADRE running in WSL': '# esta conexión es para MADRE ejecutándose en WSL',
+  '# follow docs/WINDOWS-BROWSER.md; do not install the Windows server in Linux': '# sigue docs/WINDOWS-BROWSER.md; no instales el servidor Windows en Linux',
+  'The Windows connection uses @playwright/mcp@{version} installed explicitly in Windows LOCALAPPDATA/MADRE/browser-server. Follow the Windows browser guide; no Linux package is installed or updated.': 'La conexión Windows usa @playwright/mcp@{version}, instalado expresamente en LOCALAPPDATA/MADRE/browser-server de Windows. Sigue la guía del navegador Windows; no se instala ni actualiza ningún paquete Linux.',
 };
