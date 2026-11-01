@@ -29,6 +29,9 @@ export function codexMcpOverrides(servers) {
       // Only the tools the room allows reach the model: every tool a server lists rides in every
       // call Codex makes inside the turn, and @playwright/mcp lists 25 where the room uses 16.
       ...(server.tools?.length ? ['-c', `${key}.enabled_tools=${tomlValue(server.tools)}`] : []),
+      // A server that guards a capability may need to finish startup before Codex begins the
+      // turn. Otherwise Codex can silently continue before a slow relay completes its handshake.
+      ...(server.required ? ['-c', `${key}.required=true`] : []),
       // And those are callable. Codex runs here with --ask-for-approval never, and under that policy
       // it refuses every MCP call that is not pre-approved («MCP tool call requires approval, but
       // approval policy is never»): Codex never reached the room's memory or its browser.

@@ -6,6 +6,8 @@ A version closes when it is on npm: until then its section is called **Unrelease
 
 ## 1.1.2 · Unreleased
 
+- **Optional Windows Edge and Chrome from WSL.** TEST BROWSER adds `CONNECTION = windows`, with a pinned Windows MCP server, dedicated profiles and loopback CDP. Preserves the local default and `WEBSITES`; explains external session/window ownership, converts paths and checks metadata without navigating tabs. It rejects Windows Node below 20 before server startup, and its diagnostic never recommends Linux packages. Includes guides, regressions, prior real validation with both browsers, and complete source-suite and package validation; a live rerun requires the dedicated endpoints to be open.
+
 ## 1.1.1 · 2026-10-31
 
 An urgent fixes release, with what 1.1.0's diagnostics said, and an installer for Windows.
